@@ -8,12 +8,10 @@ package br.com.lojaoriodopeixe.vg.calc.pis.cofins.view;
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.calculator.Calculator;
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.Utils;
 import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,18 +23,14 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-
     public Main() {
         initComponents();
         util.centerWindow(this);
         this.setAlwaysOnTop(true);
         util.nextFieldWithEnter(this);
     }
-// coloca uma figura na barra de título da janela
-
 
     Utils util = new Utils();
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +57,7 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculadora PIS/COFINS");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
 
