@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *

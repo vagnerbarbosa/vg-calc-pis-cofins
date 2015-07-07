@@ -57,9 +57,10 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calculadora PIS/COFINS");
+        setTitle("Calculadora PIS/COFINS v0.9");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
+        setResizable(false);
 
         jLabel1.setText("Valor 1");
 
