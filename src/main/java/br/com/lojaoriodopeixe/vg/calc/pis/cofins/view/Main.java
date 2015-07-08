@@ -5,7 +5,7 @@
  */
 package br.com.lojaoriodopeixe.vg.calc.pis.cofins.view;
 
-import br.com.lojaoriodopeixe.vg.calc.pis.cofins.calculator.Calculator;
+import br.com.lojaoriodopeixe.vg.calc.pis.cofins.implementations.CalculatorImpl;
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.Utils;
 import java.awt.Color;
 import java.math.BigDecimal;
@@ -224,7 +224,7 @@ public class Main extends javax.swing.JFrame {
                     values.add(stringThirdValue);
                 }
 
-                Calculator c = new Calculator();
+                CalculatorImpl c = new CalculatorImpl();
                 String total = c.getTotalValue(values).toPlainString();
                 String totalPis = c.getPIS(c.getTotalValue(values)).toPlainString();
                 String totalConfins = c.getCONFINS(c.getTotalValue(values)).toPlainString();
