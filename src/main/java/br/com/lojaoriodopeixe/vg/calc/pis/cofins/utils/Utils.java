@@ -10,8 +10,13 @@ import java.util.HashSet;
 import javax.swing.JFrame;
 
 /**
+ * Classe contendo métodos que são úteis em determinadas partes do projeto
  *
- * @author vagner
+ * @author Vagner Barbosa (contato@vagnerbarbosa.com)
+ *
+ * @since 07/06/2015
+ *
+ * @version 0.9
  */
 public class Utils {
 
@@ -43,7 +48,6 @@ public class Utils {
         }
 
         frame.setLocation((screenSize.width - frameSize.width) >> 1, (screenSize.height - frameSize.height) >> 1);
-
     }
 
     public void nextFieldWithEnter(JFrame frame) {

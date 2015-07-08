@@ -280,7 +280,6 @@ public class Main extends javax.swing.JFrame {
                 String total = c.getTotalValue(values).toPlainString();
                 String totalPis = c.getPIS(c.getTotalValue(values)).toPlainString();
                 String totalConfins = c.getCONFINS(c.getTotalValue(values)).toPlainString();
-                System.out.println(total);
                 TotalViewer.setText("R$ " + total);
                 TotalViewer.setForeground(Color.WHITE);
                 TotalViewer.setBackground(Color.decode("101211"));
