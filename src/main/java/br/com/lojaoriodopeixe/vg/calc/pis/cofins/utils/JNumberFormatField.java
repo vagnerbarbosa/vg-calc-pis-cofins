@@ -23,7 +23,7 @@ public class JNumberFormatField extends JTextField {
 
   private static final long serialVersionUID = -7506506392528621022L;
 
-  private static final NumberFormat MONETARY_FORMAT = new DecimalFormat("#,##0.00");
+  private static final NumberFormat MONETARY_FORMAT = new DecimalFormat("¤ #,##0.00");
 
   private NumberFormat numberFormat;
 
@@ -41,7 +41,7 @@ public class JNumberFormatField extends JTextField {
     // define o formato do número
     numberFormat = format;
     // alinhamento horizontal para o texto
-    setHorizontalAlignment(RIGHT);
+    setHorizontalAlignment(LEFT);
     // documento responsável pela formatação do campo
     setDocument(new PlainDocument() {
 
@@ -96,7 +96,7 @@ public class JNumberFormatField extends JTextField {
       }
     });
     // formato inicial
-    setText("0");
+    setText("");
     setCaretPosition(getText().length());
   }
 

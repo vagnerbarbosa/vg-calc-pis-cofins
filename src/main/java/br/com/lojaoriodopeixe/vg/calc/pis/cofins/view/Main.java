@@ -52,12 +52,12 @@ public class Main extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TotalViewer = new javax.swing.JTextField();
-        PisViewer = new javax.swing.JTextField();
-        CofinsViewer = new javax.swing.JTextField();
         BTgetCalc = new javax.swing.JButton();
         BtClear = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        TotalViewer = new br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField();
+        PisViewer = new br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField();
+        CofinsViewer = new br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora de PIS/COFINS v0.9.1");
@@ -108,23 +108,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel6.setText("TOTAL");
 
-        TotalViewer.setEditable(false);
-        TotalViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TotalViewer.setFocusable(false);
-        TotalViewer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TotalViewerActionPerformed(evt);
-            }
-        });
-
-        PisViewer.setEditable(false);
-        PisViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        PisViewer.setFocusable(false);
-
-        CofinsViewer.setEditable(false);
-        CofinsViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        CofinsViewer.setFocusable(false);
-
         BTgetCalc.setText("Calcular");
         BTgetCalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,8 +125,27 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 204));
         jLabel7.setText("Calculadora de PIS/COFINS");
+
+        TotalViewer.setEditable(false);
+        TotalViewer.setText("");
+        TotalViewer.setFocusable(false);
+        TotalViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TotalViewer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotalViewerActionPerformed(evt);
+            }
+        });
+
+        PisViewer.setEditable(false);
+        PisViewer.setFocusable(false);
+        PisViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        CofinsViewer.setEditable(false);
+        CofinsViewer.setFocusable(false);
+        CofinsViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,47 +154,45 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5))
-                            .addGap(26, 26, 26)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(PisViewer)
-                                .addComponent(CofinsViewer)
-                                .addComponent(TotalViewer)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(77, 77, 77)
-                                    .addComponent(jLabel1)
-                                    .addGap(47, 47, 47)
-                                    .addComponent(jLabel2)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(jLabel3))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(58, 58, 58)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(FirstValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(SecondValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(ThirdValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(BTgetCalc)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(BtClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(49, 49, 49)))))
-                            .addGap(0, 50, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TotalViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PisViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CofinsViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(FirstValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SecondValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ThirdValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(BTgetCalc)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(BtClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(49, 49, 49))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(jLabel2)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jLabel3)))))
+                        .addGap(0, 50, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,15 +220,15 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(TotalViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
                     .addComponent(PisViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(CofinsViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 396, 255);
@@ -280,13 +280,13 @@ public class Main extends javax.swing.JFrame {
                 String totalPis = c.getPIS(c.getTotalValue(values)).toPlainString();
                 String totalConfins = c.getCONFINS(c.getTotalValue(values)).toPlainString();
 
-                TotalViewer.setText("R$ " + total.replace(".", ","));
+                TotalViewer.setText("R$ " + total);
                 TotalViewer.setForeground(Color.WHITE);
                 TotalViewer.setBackground(Color.decode("101211"));
-                PisViewer.setText("R$ " + totalPis.replace(".", ","));
+                PisViewer.setText(totalPis);
                 PisViewer.setBackground(Color.RED);
                 PisViewer.setForeground(Color.WHITE);
-                CofinsViewer.setText("R$ " + totalConfins.replace(".", ","));
+                CofinsViewer.setText(totalConfins);
                 CofinsViewer.setBackground(Color.BLUE);
                 CofinsViewer.setForeground(Color.WHITE);
                 FirstValue.selectAll();
@@ -306,10 +306,6 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BTgetCalcActionPerformed
 
-    private void TotalViewerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalViewerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TotalViewerActionPerformed
-
     private void FirstValueFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FirstValueFocusGained
             FirstValue.selectAll();
     }//GEN-LAST:event_FirstValueFocusGained
@@ -327,6 +323,10 @@ public class Main extends javax.swing.JFrame {
          BTgetCalcActionPerformed(null);
     }  
     }//GEN-LAST:event_FirstValueKeyPressed
+
+    private void TotalViewerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalViewerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotalViewerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,12 +366,12 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTgetCalc;
     private javax.swing.JButton BtClear;
-    private javax.swing.JTextField CofinsViewer;
+    private br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField CofinsViewer;
     private javax.swing.JTextField FirstValue;
-    private javax.swing.JTextField PisViewer;
+    private br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField PisViewer;
     private javax.swing.JTextField SecondValue;
     private javax.swing.JTextField ThirdValue;
-    private javax.swing.JTextField TotalViewer;
+    private br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField TotalViewer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
