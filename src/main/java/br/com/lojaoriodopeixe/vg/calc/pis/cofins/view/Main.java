@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.lojaoriodopeixe.vg.calc.pis.cofins.view;
 
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.implementations.CalculatorImpl;
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.Utils;
 import java.awt.Color;
+import java.awt.GraphicsConfiguration;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
 
 /**
  *
@@ -27,9 +24,14 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         util.centerWindow(this);
         this.setAlwaysOnTop(true);
-        util.nextFieldWithEnter(this);
+        //util.nextFieldWithEnter(this);
+        this.getRootPane().setDefaultButton(BTgetCalc);
     }
 
+    @Override
+    public JRootPane getRootPane() {
+        return super.getRootPane(); //To change body of generated methods, choose Tools | Templates.
+    }
     Utils util = new Utils();
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,11 +55,11 @@ public class Main extends javax.swing.JFrame {
         TotalViewer = new javax.swing.JTextField();
         PisViewer = new javax.swing.JTextField();
         CofinsViewer = new javax.swing.JTextField();
-        getCalc = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BTgetCalc = new javax.swing.JButton();
+        BtClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calculadora PIS/COFINS v0.9");
+        setTitle("Calculadora PIS/COFINS v0.9.1");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setResizable(false);
@@ -68,9 +70,31 @@ public class Main extends javax.swing.JFrame {
 
         jLabel3.setText("Valor 3");
 
+        FirstValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                FirstValueFocusGained(evt);
+            }
+        });
         FirstValue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FirstValueActionPerformed(evt);
+            }
+        });
+        FirstValue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                FirstValueKeyPressed(evt);
+            }
+        });
+
+        ThirdValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ThirdValueFocusGained(evt);
+            }
+        });
+
+        SecondValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                SecondValueFocusGained(evt);
             }
         });
 
@@ -81,6 +105,7 @@ public class Main extends javax.swing.JFrame {
         jLabel6.setText("TOTAL");
 
         TotalViewer.setEditable(false);
+        TotalViewer.setFocusable(false);
         TotalViewer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotalViewerActionPerformed(evt);
@@ -88,23 +113,25 @@ public class Main extends javax.swing.JFrame {
         });
 
         PisViewer.setEditable(false);
+        PisViewer.setFocusable(false);
 
         CofinsViewer.setEditable(false);
+        CofinsViewer.setFocusable(false);
 
-        getCalc.setText("Calcular");
-        getCalc.addActionListener(new java.awt.event.ActionListener() {
+        BTgetCalc.setText("Calcular");
+        BTgetCalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getCalcActionPerformed(evt);
+                BTgetCalcActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Limpar");
-        jButton2.setMaximumSize(new java.awt.Dimension(71, 23));
-        jButton2.setMinimumSize(new java.awt.Dimension(71, 23));
-        jButton2.setPreferredSize(new java.awt.Dimension(71, 23));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtClear.setText("Limpar");
+        BtClear.setMaximumSize(new java.awt.Dimension(71, 23));
+        BtClear.setMinimumSize(new java.awt.Dimension(71, 23));
+        BtClear.setPreferredSize(new java.awt.Dimension(71, 23));
+        BtClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtClearActionPerformed(evt);
             }
         });
 
@@ -145,9 +172,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(ThirdValue, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addComponent(getCalc)
+                        .addComponent(BTgetCalc)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BtClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,8 +192,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(SecondValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(getCalc)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTgetCalc)
+                    .addComponent(BtClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -186,12 +213,12 @@ public class Main extends javax.swing.JFrame {
 
         setBounds(0, 0, 400, 268);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void FirstValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstValueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FirstValueActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtClearActionPerformed
         FirstValue.setText("");
         SecondValue.setText("");
         ThirdValue.setText("");
@@ -201,9 +228,13 @@ public class Main extends javax.swing.JFrame {
         PisViewer.setBackground(Color.decode("-986896"));
         CofinsViewer.setText("");
         CofinsViewer.setBackground(Color.decode("-986896"));
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtClearActionPerformed
 
-    private void getCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getCalcActionPerformed
+    public Main(GraphicsConfiguration gc) {
+        super(gc);
+    }
+        
+    private void BTgetCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTgetCalcActionPerformed
 
         if (!FirstValue.getText().isEmpty() || !SecondValue.getText().isEmpty() || !ThirdValue.getText().isEmpty()) {
             BigDecimal stringFirstValue;
@@ -252,11 +283,29 @@ public class Main extends javax.swing.JFrame {
             this.setAlwaysOnTop(true);
         }
 
-    }//GEN-LAST:event_getCalcActionPerformed
+    }//GEN-LAST:event_BTgetCalcActionPerformed
 
     private void TotalViewerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalViewerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TotalViewerActionPerformed
+
+    private void FirstValueFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FirstValueFocusGained
+            FirstValue.selectAll();
+    }//GEN-LAST:event_FirstValueFocusGained
+
+    private void SecondValueFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SecondValueFocusGained
+            SecondValue.selectAll();
+    }//GEN-LAST:event_SecondValueFocusGained
+
+    private void ThirdValueFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ThirdValueFocusGained
+            ThirdValue.selectAll();
+    }//GEN-LAST:event_ThirdValueFocusGained
+
+    private void FirstValueKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FirstValueKeyPressed
+     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {  
+         BTgetCalcActionPerformed(null);
+    }  
+    }//GEN-LAST:event_FirstValueKeyPressed
 
     /**
      * @param args the command line arguments
@@ -294,14 +343,14 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTgetCalc;
+    private javax.swing.JButton BtClear;
     private javax.swing.JTextField CofinsViewer;
     private javax.swing.JTextField FirstValue;
     private javax.swing.JTextField PisViewer;
     private javax.swing.JTextField SecondValue;
     private javax.swing.JTextField ThirdValue;
     private javax.swing.JTextField TotalViewer;
-    private javax.swing.JButton getCalc;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
