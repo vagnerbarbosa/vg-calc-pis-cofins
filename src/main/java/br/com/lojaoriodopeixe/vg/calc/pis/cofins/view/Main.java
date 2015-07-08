@@ -60,7 +60,7 @@ public class Main extends javax.swing.JFrame {
         CofinsViewer = new br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calculadora de PIS/COFINS v0.9.1");
+        setTitle("Calculadora de PIS/COFINS v0.9.2");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setResizable(false);
@@ -152,10 +152,9 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4)
@@ -165,11 +164,10 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(TotalViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PisViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(CofinsViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
+                                .addGap(68, 68, 68)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(FirstValue, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,7 +181,7 @@ public class Main extends javax.swing.JFrame {
                                         .addComponent(BtClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(49, 49, 49))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
+                                .addGap(83, 83, 83)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7)
                                     .addGroup(layout.createSequentialGroup()
@@ -194,6 +192,9 @@ public class Main extends javax.swing.JFrame {
                                         .addComponent(jLabel3)))))
                         .addGap(0, 50, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jSeparator1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,11 +243,11 @@ public class Main extends javax.swing.JFrame {
         FirstValue.setText("");
         SecondValue.setText("");
         ThirdValue.setText("");
-        TotalViewer.setText("");
+        TotalViewer.setForeground(Color.decode("-986896"));
         TotalViewer.setBackground(Color.decode("-986896"));
-        PisViewer.setText("");
+        PisViewer.setForeground(Color.decode("-986896"));
         PisViewer.setBackground(Color.decode("-986896"));
-        CofinsViewer.setText("");
+        CofinsViewer.setForeground(Color.decode("-986896"));
         CofinsViewer.setBackground(Color.decode("-986896"));
     }//GEN-LAST:event_BtClearActionPerformed
 
@@ -279,7 +280,7 @@ public class Main extends javax.swing.JFrame {
                 String total = c.getTotalValue(values).toPlainString();
                 String totalPis = c.getPIS(c.getTotalValue(values)).toPlainString();
                 String totalConfins = c.getCONFINS(c.getTotalValue(values)).toPlainString();
-
+                System.out.println(total);
                 TotalViewer.setText("R$ " + total);
                 TotalViewer.setForeground(Color.WHITE);
                 TotalViewer.setBackground(Color.decode("101211"));
