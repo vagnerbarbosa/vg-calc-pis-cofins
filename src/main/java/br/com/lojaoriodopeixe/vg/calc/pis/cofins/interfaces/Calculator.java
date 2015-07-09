@@ -15,10 +15,10 @@ import java.util.List;
  */
 public interface Calculator {
 
-    public BigDecimal getPIS(BigDecimal value);
+    public abstract BigDecimal getPIS(BigDecimal value);
 
-    public BigDecimal getCONFINS(BigDecimal value);
+    public abstract BigDecimal getCONFINS(BigDecimal value);
 
-    public BigDecimal getTotalValue(List<BigDecimal> values);
+    public abstract BigDecimal getTotalValue(List<BigDecimal> values);
 
 }
