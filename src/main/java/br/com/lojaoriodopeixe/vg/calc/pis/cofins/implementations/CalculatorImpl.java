@@ -26,19 +26,16 @@ public class CalculatorImpl implements Calculator {
     public CalculatorImpl() {
     }
 
-    /* Metódo que calcula o valor do PIS não-cumulativo com base no valor do tipo BigDecimal informado */
     @Override
     public BigDecimal getPIS(BigDecimal value) {
         return value.multiply(PIS).setScale(2, RoundingMode.UP);
     }
 
-    /* Metódo que calcula o valor do COFINS não-cumulativo com base no valor do tipo BigDecimal informado */
     @Override
     public BigDecimal getCONFINS(BigDecimal value) {
         return value.multiply(CONFINS).setScale(2, RoundingMode.UP);
     }
 
-    /* Metódo que calcula o valor a soma de uma lista de BigDecimal informado */
     @Override
     public BigDecimal getTotalValue(List<BigDecimal> values) {
         BigDecimal sum = new BigDecimal("0");
