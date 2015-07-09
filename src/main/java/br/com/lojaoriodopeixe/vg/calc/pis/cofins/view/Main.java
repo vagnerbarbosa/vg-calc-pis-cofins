@@ -136,7 +136,7 @@ public class Main extends javax.swing.JFrame {
 
         TotalViewer.setEditable(false);
         TotalViewer.setFocusable(false);
-        TotalViewer.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        TotalViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TotalViewer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotalViewerActionPerformed(evt);
@@ -145,11 +145,11 @@ public class Main extends javax.swing.JFrame {
 
         PisViewer.setEditable(false);
         PisViewer.setFocusable(false);
-        PisViewer.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        PisViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         CofinsViewer.setEditable(false);
         CofinsViewer.setFocusable(false);
-        CofinsViewer.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        CofinsViewer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
