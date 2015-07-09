@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @since 07/06/2015
  *
- * @version 0.9
+ * @version 1.0
  */
 public class CalculatorImpl implements Calculator {
 
