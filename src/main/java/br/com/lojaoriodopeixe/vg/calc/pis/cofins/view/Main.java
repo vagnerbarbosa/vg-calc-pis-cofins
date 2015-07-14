@@ -4,10 +4,12 @@ import br.com.lojaoriodopeixe.vg.calc.pis.cofins.implementations.CalculatorImpl;
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.Utils;
 import java.awt.Color;
 import java.awt.GraphicsConfiguration;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 
@@ -31,8 +33,9 @@ public class Main extends javax.swing.JFrame {
         this.setAlwaysOnTop(true);
         //util.nextFieldWithEnter(this);
         this.getRootPane().setDefaultButton(BTgetCalc);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/")));
     }
-
+    
     @Override
     public JRootPane getRootPane() {
         return super.getRootPane(); //To change body of generated methods, choose Tools | Templates.
@@ -65,7 +68,7 @@ public class Main extends javax.swing.JFrame {
         CofinsViewer = new br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.JNumberFormatField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calculadora de PIS/COFINS v0.9.2");
+        setTitle("Calculadora de PIS/COFINS v0.9.3");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setResizable(false);
