@@ -4,9 +4,12 @@ import br.com.lojaoriodopeixe.vg.calc.pis.cofins.implementations.CalculatorImpl;
 import br.com.lojaoriodopeixe.vg.calc.pis.cofins.utils.Utils;
 import java.awt.Color;
 import java.awt.GraphicsConfiguration;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.math.BigDecimal;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -31,10 +34,10 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         util.centerWindow(this);
         this.setAlwaysOnTop(true);
-        //util.nextFieldWithEnter(this);
-        this.getRootPane().setDefaultButton(BTgetCalc);
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/")));
+        this.getRootPane().setDefaultButton(BTgetCalc);        
     }
+    
+   
     
     @Override
     public JRootPane getRootPane() {
